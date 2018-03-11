@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, header, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, main {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	vertical-align: baseline;
+	}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	padding:4em 2em 2em 2em;
+	background-image:url(bg.jpg);
+	background-size:cover;
+	color:#fff;
+	}
+	
+p {
+	padding:0 0 1.5em 0;
+	}
+
+.wrapper {
+	width:1000px;
+	margin:0 auto;
+	}
+	
+#treePane {
+	width:250px;
+	float:left;
+	background-color:#1d0437;
+	}
+	
+#tabPane {
+	width:710px;
+	float:right;
+	padding-left:40px;
+	}
+	
+#treePane ul {
+	list-style:none;
+	}
+	
+#treePane ul li a {
+	display:block;
+	background-color:#1d0437;
+	color:#fff;
+	line-height:44px;
+	text-decoration:none;
+	border-bottom:solid 1px #280544;
+	text-transform:uppercase;
+	letter-spacing:2px;
+	transition: all 0.5s linear;
+	}
+	
+#treePane ul li a:hover {
+	background-color:#00afd3;
+	}
+	
+#treePane ul li a:before {
+	content:"+";
+	padding:0 15px;
+	}
+	
+#treePane ul li.clicked a:before {
+	content:"-";
+	}
+	
+#treePane ul ul {
+	display:none;
+	}
+	
+#treePane ul li.clicked ul {
+	display:block;
+	}
+	
+#treePane ul ul li a {
+	text-transform:none;
+	font-size:.875em;
+	background-color:#280544;
+	padding-left:40px;
+	}
+
+#treePane ul li.clicked ul a:before,
+#treePane ul ul li a:before {
+	content:none;
+	}
+
+#treePane ul ul li a:hover {
+	background-color:#430577;
+	}
+	
+#treePane ul ul li a:hover:before {
+	color:#8200f5;
+	}
+	
+#treePane ul ul li a.selected {
+	background-color:#55039b;
+	}
+	
+#treePane ul ul li a.selected:after {
+	color:#280544;
+	content:">";
+	float:right;
+	padding-right:10px;
+	font-size:26px;
+	}
+	
+.tabNav {
+	list-style:none;
+	margin:0 0 1.5em 0;
+	}
+	
+.tabNav li {
+	display:inline;
+	cursor:pointer;
+	text-transform:uppercase;
+	margin-right:1.75em;
+	transition: all 0.5s linear;
+	}
+	
+.tabNav li:hover {
+	color:#00afd3;
+	}
+	
+.tabNav li.active {
+	border-bottom:solid 4px #00afd3;
+	}
+	
+.tabContent {
+	text-align:justify;
+	}
+	
+.tabContent h2 {
+	font-size:h2;
+	text-transform:uppercase;
+	padding:0 0 20px 0;
+	}

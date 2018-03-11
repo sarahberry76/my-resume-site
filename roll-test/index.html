@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<head>
+<title>Sarah Berry | Web Designer & Developer</title>
+<meta name="description" content="Sarah Berry - Highly experienced web designer currently seeking a full time position in a dynamic, fast paced, forward-thinking business environment in the RI / Boston area. This website serves as a digital portfolio and an extension of my resume. Feel free to contact me using the info on my site. Cheers!" />
+<meta name="keywords" content="Sarah Berry, Web Designer, Web Design, Graphic Designer, ADA Compliance Expert, Providence, Boston" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<!--link rel="stylesheet" href="css/normalize.css"-->
+<link rel="stylesheet" href="css/default.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+//Detect Closest Edge
+function closestEdge(x,y,w,h) {
+    var topEdgeDist = distMetric(x,y,w/2,0);
+    var bottomEdgeDist = distMetric(x,y,w/2,h);
+    var leftEdgeDist = distMetric(x,y,0,h/2);
+    var rightEdgeDist = distMetric(x,y,w,h/2);
+    var min = Math.min(topEdgeDist,bottomEdgeDist,leftEdgeDist,rightEdgeDist);
+    switch (min) {
+        case leftEdgeDist:
+            return "left";
+        case rightEdgeDist:
+            return "right";
+        case topEdgeDist:
+            return "top";
+        case bottomEdgeDist:
+            return "bottom";
+    }
+}
+
+//Distance Formula
+function distMetric(x,y,x2,y2) {
+    var xDiff = x - x2;
+    var yDiff = y - y2;
+    return (xDiff * xDiff) + (yDiff * yDiff);
+}
+
+
+var boxes = document.querySelectorAll(".boxes");
+
+for(var i = 0; i < boxes.length; i++){
+
+    boxes[i].onmouseenter = function(e){
+        var x = e.pageX - this.offsetLeft;
+        var y = e.pageY - this.offsetTop;
+        var edge = closestEdge(x,y,this.clientWidth, this.clientHeight);
+        var overlay = this.childNodes[1];
+        var image = this.childNodes[0];
+
+        switch(edge){
+            case "left":
+                //tween overlay from the left
+                overlay.style.top = "0%";
+                overlay.style.left = "-100%";
+                TweenMax.to(overlay, .5, {left: '0%'});
+                TweenMax.to(image, .5, {scale: 1.2});
+                break;
+            case "right":
+                overlay.style.top = "0%";
+                overlay.style.left = "100%";
+                //tween overlay from the right
+                TweenMax.to(overlay, .5, {left: '0%'});
+                TweenMax.to(image, .5, {scale: 1.2});
+                break;
+            case "top":
+                overlay.style.top = "-100%";
+                overlay.style.left = "0%";
+                //tween overlay from the right
+                TweenMax.to(overlay, .5, {top: '0%'});
+                TweenMax.to(image, .5, {scale: 1.2});
+                break;
+            case "bottom":
+                overlay.style.top = "100%";
+                overlay.style.left = "0%";
+                //tween overlay from the right
+                TweenMax.to(overlay, .5, {top: '0%'});
+                TweenMax.to(image, .5, {scale: 1.2});
+                break;
+        }
+    };
+
+   
+    boxes[i].onmouseleave = function(e){
+        var x = e.pageX - this.offsetLeft;
+        var y = e.pageY - this.offsetTop;
+        var edge = closestEdge(x,y,this.clientWidth, this.clientHeight);
+        var overlay = this.childNodes[1];
+        var image = this.childNodes[0];
+
+        switch(edge){
+            case "left":
+                TweenMax.to(overlay, .5, {left: '-100%'});
+                TweenMax.to(image, .5, {scale: 1.0});
+                break;
+            case "right":
+                TweenMax.to(overlay, .5, {left: '100%'});
+                TweenMax.to(image, .5, {scale: 1.0});
+                break;
+            case "top":
+                TweenMax.to(overlay, .5, {top: '-100%'});
+                TweenMax.to(image, .5, {scale: 1.0});
+                break;
+            case "bottom":
+                TweenMax.to(overlay, .5, {top: '100%'});
+                TweenMax.to(image, .5, {scale: 1.0});
+                break;
+        }
+    };
+}
+</script>
+</head>
+	
+<body id="top">
+
+<h1>Direction Aware Hover</h1>
+<div class="container cf">
+<div class="boxes"><img class="da-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/24345/da_image1.jpg"><div class="overlay"></div></div>
+<div class="boxes"><img class="da-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/24345/da_image2.jpg"><div class="overlay"></div></div>
+<div class="boxes"><img class="da-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/24345/da_image3.jpg"><div class="overlay"></div></div>
+<div class="boxes"><img class="da-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/24345/da_image4.jpg"><div class="overlay"></div></div>
+<div class="boxes"><img class="da-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/24345/da_image5.jpg"><div class="overlay"></div></div>
+<div class="boxes"><img class="da-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/24345/da_image6.jpg"><div class="overlay"></div></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+/* ==========================================================================
+   FULLSCREEN MENU
+   ========================================================================== */
+
+
+
+/* Overlay style */
+
+#trigger-overlay {
+	width: 30px;
+	height: 30px;
+	color: transparent;
+	outline: none;
+	background-color:transparent;
+	border: none;
+	cursor:pointer;
+	position:absolute;
+	right:25px;
+	top:18px;
+	font-size:1.75em;
+	background-image:none;/*Fighting Bootstrap*/
+}
+
+.overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;  
+	background: rgba(39,39,39,.90);
+	z-index: 1000!important;
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	overflow: hidden;
+	border: none;
+	background: url(../images/cross.png) no-repeat center center;
+	text-indent: 200%;
+	color: transparent;
+	outline: none;
+	z-index: 100;
+}
+
+.overlay nav {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	height: 60%;
+	font-size: 20px;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.overlay ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	display: block;
+	height: 100%;
+	position: relative;
+}
+
+.overlay ul li {
+	display: block;
+	height: 20%;
+	height: calc(100% / 5);
+}
+
+.overlay ul li a {
+	text-transform:uppercase;
+	display: block;
+	color: #fff;
+	-webkit-transition: color 0.5s;
+	transition: color 0.5s;
+	font-size:1em;
+	font-weight:300;
+	letter-spacing:2px;
+}
+
+
+.overlay nav li a:hover {
+	color: #f28881;
+}
+
+
+/* Effects */
+.overlay-scale {
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+	-webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+	transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+}
+
+.overlay-scale.open {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);	
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+	transition: transform 0.4s, opacity 0.4s;
+}
+
+
+
+
+@media screen and (max-width: 700px) {
+
+
+	.overlay .overlay-close {
+		width: 40px;
+		height: 45px;
+	}
+
+	.overlay nav {
+		/*margin-top: 90px;*/
+	}
+	
+}
+
+
+
+@media screen and (max-width: 500px) {
+
+
+	.overlay .overlay-close {
+		width: 30px;
+		height: 45px;
+	}
+		
+	.overlay nav {
+		/*margin-top: 90px;*/
+	}
+
+	.overlay nav li {
+		font-size: 1.25em;
+	}
+	
+}
+
+
